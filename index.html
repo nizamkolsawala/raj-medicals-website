@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Raj Medicals | Chandrapur Pharmacy Delivery & Pickup</title>
+    <meta
+      name="description"
+      content="Raj Medicals, Chandrapur. Upload prescriptions, order for pickup or delivery, pay by UPI or cash, and track pharmacist-approved orders."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Raj Medicals home">
+        <span class="brand-mark">+</span>
+        <span>
+          <strong>Raj Medicals</strong>
+          <small>Chandrapur, Maharashtra</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#order">Order</a>
+        <a href="#track">Track</a>
+        <a href="#contact">Contact</a>
+        <a href="#dashboard">Pharmacist Desk</a>
+      </nav>
+      <a class="whatsapp-link" href="https://wa.me/919156957786?text=Hello%20Raj%20Medicals%2C%20I%20need%20help%20with%20a%20medicine%20order." target="_blank" rel="noreferrer">
+        WhatsApp
+      </a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Licensed local pharmacy</p>
+          <h1>Raj Medicals</h1>
+          <p class="hero-text">
+            Order genuine medicines from Raj Medicals, Fahim Manzil, Jatepura Gate, Chandrapur with prescription upload, pharmacist review, pickup, home delivery, GST invoices, UPI, and cash payment options.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#order">Upload prescription</a>
+            <a class="btn secondary" href="tel:+919156957786">Call 9156957786</a>
+          </div>
+          <div class="trust-strip" aria-label="Service highlights">
+            <span>Free delivery above ₹500</span>
+            <span>Secure prescription storage</span>
+            <span>Pharmacist approved</span>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Order summary preview">
+          <img src="assets/raj-medicals-hero.png" alt="Modern pharmacy counter with medicines and prescription service" />
+          <div class="floating-status">
+            <strong>RX review</strong>
+            <span>Typically approved in 15-20 min</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-panel" aria-label="Customer service options">
+        <article>
+          <span class="panel-icon">RX</span>
+          <h2>Prescription orders</h2>
+          <p>Upload doctor prescriptions securely and receive pharmacist approval before billing.</p>
+        </article>
+        <article>
+          <span class="panel-icon">UPI</span>
+          <h2>UPI or cash</h2>
+          <p>Pay online by UPI after approval, or choose cash for pickup and home delivery.</p>
+        </article>
+        <article>
+          <span class="panel-icon">GST</span>
+          <h2>GST invoices</h2>
+          <p>Download invoice-ready order details with GSTIN, item tax split, and customer details.</p>
+        </article>
+      </section>
+
+      <section class="section-grid" id="order">
+        <div class="section-copy">
+          <p class="eyebrow">Order medicines</p>
+          <h2>Upload, approve, deliver</h2>
+          <p>
+            Built around the real pharmacy workflow: customer request, secure prescription storage, pharmacist approval, invoice, and fulfillment.
+          </p>
+          <ul class="check-list">
+            <li>Pickup or home delivery across Chandrapur service zones</li>
+            <li>Free delivery automatically applied above ₹500</li>
+            <li>Controlled medicines blocked until pharmacist approval</li>
+          </ul>
+        </div>
+
+        <form class="order-form" id="orderForm">
+          <div class="form-row two">
+            <label>
+              Full name
+              <input name="name" type="text" placeholder="Customer name" required />
+            </label>
+            <label>
+              Mobile number
+              <input name="phone" type="tel" placeholder="+91 91569 57786" required />
+            </label>
+          </div>
+          <label>
+            Prescription upload
+            <input id="prescriptionFile" name="prescription" type="file" accept=".jpg,.jpeg,.png,.pdf" />
+            <small id="fileStatus">Encrypted storage ready. JPG, PNG, or PDF accepted.</small>
+          </label>
+          <label>
+            Medicines needed
+            <textarea name="notes" rows="4" placeholder="Example: Dolo 650, Azithral 500, or attach prescription"></textarea>
+          </label>
+          <div class="form-row two">
+            <label>
+              Fulfillment
+              <select id="fulfillment" name="fulfillment">
+                <option value="Delivery">Home delivery</option>
+                <option value="Pickup">Store pickup</option>
+              </select>
+            </label>
+            <label>
+              Payment
+              <select name="payment">
+                <option>UPI after approval</option>
+                <option>Cash on delivery/pickup</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Delivery address
+            <input name="address" type="text" placeholder="House, area, Chandrapur" />
+          </label>
+          <button class="btn primary full" type="submit">Create order request</button>
+          <p class="form-result" id="orderResult" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="track-section" id="track">
+        <div>
+          <p class="eyebrow">Order tracking</p>
+          <h2>Track approval to delivery</h2>
+          <p>Customers can follow every stage after placing an order, with WhatsApp updates from Raj Medicals.</p>
+        </div>
+        <div class="tracking-card">
+          <label>
+            Order ID
+            <input id="trackingInput" type="text" value="RM-2026-1042" />
+          </label>
+          <button class="btn primary" id="trackButton" type="button">Track order</button>
+          <ol class="timeline" id="timeline">
+            <li class="done">Request received</li>
+            <li class="done">Pharmacist approved</li>
+            <li class="active">Invoice and packing</li>
+            <li>Out for delivery / ready for pickup</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="account-section" id="accounts">
+        <div class="account-copy">
+          <p class="eyebrow">Customer accounts</p>
+          <h2>Saved profiles with privacy-first records</h2>
+          <p>Account screens support repeat orders, family member profiles, prescription history, GST invoice downloads, and consent-based document retention.</p>
+        </div>
+        <div class="account-card">
+          <div class="account-avatar">RM</div>
+          <div>
+            <strong>Meera Deshmukh</strong>
+            <span>3 active prescriptions | GST invoice enabled</span>
+          </div>
+          <button class="mini-button" id="privacyToggle" type="button">Storage: Secure</button>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact & Location</p>
+          <h2>Visit or call Raj Medicals</h2>
+          <p>Reach the pharmacy directly for prescription orders, pickup, home delivery, and pharmacist guidance.</p>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <span class="panel-icon">TEL</span>
+            <h3>Phone</h3>
+            <a href="tel:+919156957786">9156957786</a>
+          </article>
+          <article class="contact-card">
+            <span class="panel-icon">WA</span>
+            <h3>WhatsApp</h3>
+            <a href="https://wa.me/919156957786?text=Hello%20Raj%20Medicals%2C%20I%20want%20to%20place%20an%20order." target="_blank" rel="noreferrer">Message Raj Medicals</a>
+          </article>
+          <article class="contact-card wide">
+            <span class="panel-icon">MAP</span>
+            <h3>Address</h3>
+            <p>Raj Medicals, Fahim Manzil, Jatepura Gate, Chandrapur.</p>
+            <a class="map-link" href="https://maps.app.goo.gl/NXohKBKrf51Kn1Rk7" target="_blank" rel="noreferrer">Open location on Google Maps</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard" id="dashboard">
+        <div class="section-heading">
+          <p class="eyebrow">Operations dashboard</p>
+          <h2>Pharmacist approval and order control</h2>
+        </div>
+        <div class="metrics">
+          <article><span>Pending RX</span><strong id="metricPending">0</strong></article>
+          <article><span>Ready orders</span><strong id="metricReady">0</strong></article>
+          <article><span>GST invoices</span><strong id="metricInvoices">0</strong></article>
+          <article><span>Customer requests</span><strong id="metricWhatsApp">0</strong></article>
+        </div>
+        <div class="admin-grid live-admin-grid">
+          <div class="admin-panel">
+            <div class="panel-header">
+              <h3>Live approval queue</h3>
+              <button class="mini-button" id="refreshOrders" type="button">Refresh</button>
+            </div>
+            <label class="admin-pin-field">
+              Pharmacist PIN
+              <input id="adminPin" type="password" placeholder="Enter PIN to view orders" autocomplete="current-password" />
+            </label>
+            <div class="approval-list" id="approvalList"></div>
+          </div>
+          <div class="admin-panel">
+            <h3>How the backend works</h3>
+            <ul class="check-list backend-list">
+              <li>Customer submits the order form from the website.</li>
+              <li>The backend saves order details and prescription files privately.</li>
+              <li>Raj Medicals reviews each request in this approval queue.</li>
+              <li>Approved orders move to invoice, payment, pickup, or delivery.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>Raj Medicals</strong>
+        <span>Fahim Manzil, Jatepura Gate, Chandrapur | 9156957786</span>
+      </div>
+      <a href="https://maps.app.goo.gl/NXohKBKrf51Kn1Rk7" target="_blank" rel="noreferrer">Open location</a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
