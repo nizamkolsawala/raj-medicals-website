@@ -210,12 +210,123 @@ h3 {
   min-height: 430px;
 }
 
-.hero-card img {
+.hero-visual {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: min(64vh, 610px);
-  object-fit: cover;
   border-radius: 8px;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(36, 99, 235, 0.2), transparent 26%),
+    linear-gradient(135deg, #effaf8 0%, #ffffff 48%, #dbeafe 100%);
   box-shadow: var(--shadow);
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 52px 42px auto;
+  height: 118px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #047c83, #2463eb);
+  opacity: 0.95;
+}
+
+.hero-visual::after {
+  content: "RAJ MEDICALS";
+  position: absolute;
+  left: 72px;
+  top: 88px;
+  color: #fff;
+  font-size: clamp(24px, 4vw, 46px);
+  font-weight: 900;
+}
+
+.shelf {
+  position: absolute;
+  left: 62px;
+  right: 62px;
+  height: 78px;
+  border-radius: 8px;
+  background:
+    linear-gradient(#ffffff, #ffffff) 28px 18px / 80px 20px no-repeat,
+    linear-gradient(#dbeafe, #dbeafe) 140px 18px / 110px 20px no-repeat,
+    linear-gradient(#dff7ea, #dff7ea) 280px 18px / 95px 20px no-repeat,
+    #f8fcfc;
+  border: 1px solid var(--line);
+}
+
+.shelf-one {
+  top: 205px;
+}
+
+.shelf-two {
+  top: 310px;
+}
+
+.medicine-pack {
+  position: absolute;
+  bottom: 80px;
+  width: 112px;
+  height: 86px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 2px solid #b8dfe3;
+  box-shadow: 0 12px 28px rgba(20, 33, 61, 0.1);
+}
+
+.medicine-pack::before {
+  content: "+";
+  position: absolute;
+  left: 20px;
+  top: 13px;
+  color: var(--green);
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.pack-one {
+  left: 70px;
+}
+
+.pack-two {
+  left: 205px;
+  background: #eef8f6;
+}
+
+.pack-three {
+  left: 340px;
+  background: #eff6ff;
+}
+
+.rx-paper {
+  position: absolute;
+  right: 78px;
+  bottom: 78px;
+  width: 172px;
+  height: 210px;
+  border-radius: 8px;
+  background:
+    linear-gradient(#047c83, #047c83) 24px 32px / 90px 15px no-repeat,
+    linear-gradient(#c7dde6, #c7dde6) 24px 78px / 124px 12px no-repeat,
+    linear-gradient(#c7dde6, #c7dde6) 24px 110px / 104px 12px no-repeat,
+    linear-gradient(#c7dde6, #c7dde6) 24px 142px / 132px 12px no-repeat,
+    #ffffff;
+  border: 2px solid #b8dfe3;
+  box-shadow: 0 14px 30px rgba(20, 33, 61, 0.12);
+}
+
+.phone-card {
+  position: absolute;
+  right: 240px;
+  bottom: 82px;
+  width: 82px;
+  height: 150px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 82%, #e7fbf8 0 8px, transparent 9px),
+    linear-gradient(#e7fbf8, #e7fbf8) 16px 28px / 50px 75px no-repeat,
+    #14213d;
 }
 
 .floating-status {
@@ -380,15 +491,124 @@ small,
   grid-row: span 3;
 }
 
-.gallery-card img {
-  display: block;
+.gallery-visual {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 190px;
-  object-fit: cover;
+  background: linear-gradient(135deg, #e7fbf8, #dbeafe);
 }
 
-.gallery-card.large img {
+.gallery-card.large .gallery-visual {
   height: 470px;
+}
+
+.gallery-visual::before,
+.gallery-visual::after {
+  content: "";
+  position: absolute;
+  border-radius: 8px;
+}
+
+.counter-visual {
+  background:
+    linear-gradient(#047c83, #047c83) 52px 58px / calc(100% - 104px) 80px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 72px 190px / 42% 155px no-repeat,
+    linear-gradient(#dbeafe, #dbeafe) calc(100% - 240px) 190px / 165px 155px no-repeat,
+    linear-gradient(135deg, #effaf8, #ffffff 50%, #dbeafe);
+}
+
+.counter-visual::before {
+  left: 96px;
+  top: 82px;
+  width: 230px;
+  height: 28px;
+  background: #fff;
+}
+
+.counter-visual::after {
+  right: 96px;
+  bottom: 72px;
+  width: 180px;
+  height: 218px;
+  background:
+    linear-gradient(#047c83, #047c83) 28px 28px / 86px 14px no-repeat,
+    linear-gradient(#c7dde6, #c7dde6) 28px 72px / 118px 12px no-repeat,
+    linear-gradient(#c7dde6, #c7dde6) 28px 104px / 94px 12px no-repeat,
+    #ffffff;
+  border: 2px solid #b8dfe3;
+}
+
+.prescription-visual {
+  background:
+    linear-gradient(#047c83, #047c83) 36px 42px / 130px 20px no-repeat,
+    linear-gradient(#c7dde6, #c7dde6) 36px 88px / 210px 12px no-repeat,
+    linear-gradient(#c7dde6, #c7dde6) 36px 120px / 170px 12px no-repeat,
+    radial-gradient(circle at 78% 48%, #17a66a 0 38px, transparent 39px),
+    #f8fcfc;
+}
+
+.prescription-visual::after {
+  right: 58px;
+  top: 74px;
+  width: 58px;
+  height: 58px;
+  background:
+    linear-gradient(#fff, #fff) 24px 10px / 10px 38px no-repeat,
+    linear-gradient(#fff, #fff) 10px 24px / 38px 10px no-repeat;
+}
+
+.delivery-visual {
+  background:
+    radial-gradient(circle at 24% 72%, #14213d 0 30px, transparent 31px),
+    radial-gradient(circle at 76% 72%, #14213d 0 30px, transparent 31px),
+    linear-gradient(135deg, #f0fbf6, #e8f0ff);
+}
+
+.delivery-visual::before {
+  left: 155px;
+  top: 96px;
+  width: 210px;
+  height: 72px;
+  background:
+    linear-gradient(#17a66a, #17a66a) 44px 18px / 56px 12px no-repeat,
+    linear-gradient(#17a66a, #17a66a) 72px -10px / 12px 56px no-repeat,
+    #ffffff;
+  border: 2px solid #b8dfe3;
+}
+
+.delivery-visual::after {
+  left: 88px;
+  right: 88px;
+  bottom: 58px;
+  height: 22px;
+  background: #047c83;
+  transform: skewX(-24deg);
+}
+
+.location-visual {
+  background:
+    linear-gradient(#047c83, #047c83) 44px 54px / 245px 52px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 56px 122px / 220px 82px no-repeat,
+    radial-gradient(circle at 76% 48%, #17a66a 0 54px, transparent 55px),
+    linear-gradient(135deg, #eef8f6, #f8fbff);
+}
+
+.location-visual::before {
+  right: 78px;
+  top: 84px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.location-visual::after {
+  left: 88px;
+  bottom: 48px;
+  width: 190px;
+  height: 18px;
+  background: #c7dde6;
 }
 
 .gallery-card div {
@@ -739,7 +959,7 @@ footer a {
     padding-inline: 16px;
   }
 
-  .hero-card img {
+  .hero-visual {
     height: 300px;
   }
 
