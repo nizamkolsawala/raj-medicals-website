@@ -240,6 +240,7 @@ h3 {
 }
 
 .quick-panel,
+.gallery-section,
 .section-grid,
 .track-section,
 .account-section,
@@ -349,6 +350,59 @@ small,
 .section-heading {
   max-width: 760px;
   margin-bottom: 28px;
+}
+
+.gallery-section {
+  background: #f7fbfb;
+}
+
+.gallery-section .section-heading p:last-child {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.gallery-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 0 10px 24px rgba(20, 33, 61, 0.06);
+}
+
+.gallery-card.large {
+  grid-row: span 3;
+}
+
+.gallery-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.gallery-card.large img {
+  height: 470px;
+}
+
+.gallery-card div {
+  padding: 18px;
+}
+
+.gallery-card h3 {
+  margin-bottom: 8px;
+}
+
+.gallery-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .tracking-card,
@@ -635,6 +689,7 @@ footer a {
   }
 
   .hero,
+  .gallery-grid,
   .section-grid,
   .track-section,
   .account-section,
@@ -675,6 +730,7 @@ footer a {
 
   .hero,
   .quick-panel,
+  .gallery-section,
   .section-grid,
   .track-section,
   .account-section,

@@ -4,9 +4,9 @@ const path = require("path");
 
 const PORT = process.env.PORT || 8080;
 const ROOT = __dirname;
-const DATA_DIR = process.env.DATA_DIR || path.join(ROOT, "backend-data");
-const PRESCRIPTION_DIR = path.join(DATA_DIR, "prescriptions");
-const ORDERS_FILE = path.join(DATA_DIR, "orders.json");
+let DATA_DIR = process.env.DATA_DIR || path.join(ROOT, "backend-data");
+let PRESCRIPTION_DIR = path.join(DATA_DIR, "prescriptions");
+let ORDERS_FILE = path.join(DATA_DIR, "orders.json");
 const ADMIN_PIN = process.env.ADMIN_PIN || "1234";
 
 const mimeTypes = {
@@ -20,7 +20,20 @@ const mimeTypes = {
 };
 
 function ensureStore() {
-  fs.mkdirSync(PRESCRIPTION_DIR, { recursive: true });
+  try {
+    fs.mkdirSync(PRESCRIPTION_DIR, { recursive: true });
+  } catch (error) {
+    if (process.env.DATA_DIR && (error.code === "EACCES" || error.code === "EPERM")) {
+      DATA_DIR = path.join(ROOT, "backend-data");
+      PRESCRIPTION_DIR = path.join(DATA_DIR, "prescriptions");
+      ORDERS_FILE = path.join(DATA_DIR, "orders.json");
+      fs.mkdirSync(PRESCRIPTION_DIR, { recursive: true });
+      console.warn(`DATA_DIR was not writable. Using temporary app storage at ${DATA_DIR}. Add a persistent disk at the DATA_DIR mount path for production.`);
+    } else {
+      throw error;
+    }
+  }
+
   if (!fs.existsSync(ORDERS_FILE)) {
     fs.writeFileSync(ORDERS_FILE, "[]", "utf8");
   }

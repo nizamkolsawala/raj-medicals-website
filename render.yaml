@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: raj-medicals-website
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_PIN
+        sync: false
+      - key: DATA_DIR
+        value: /data
+    disk:
+      name: raj-medicals-orders
+      mountPath: /data
+      sizeGB: 1
